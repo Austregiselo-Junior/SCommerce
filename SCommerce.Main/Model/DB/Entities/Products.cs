@@ -37,5 +37,3 @@ namespace SCommerce.Main.Model.Entities
         }
     }
 }
-
-

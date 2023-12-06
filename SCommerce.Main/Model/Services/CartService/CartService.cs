@@ -1,5 +1,4 @@
 ﻿using SCommerce.Main.Model.Entities;
-using System.Linq;
 using System.Collections.Generic;
 
 namespace SCommerce.Main.Model.Services.CartService
@@ -16,7 +15,6 @@ namespace SCommerce.Main.Model.Services.CartService
         }
 
         public static CartService GetInstance() => _instance ?? (_instance = new CartService());
-     
 
         public void AddProductinCart(int productId, int quantity)
         {
@@ -42,8 +40,7 @@ namespace SCommerce.Main.Model.Services.CartService
 
         public List<Cart> GetProductsFromCart()
         {
-            return  _itemToCart;
+            return _itemToCart;
         }
     }
 }
-

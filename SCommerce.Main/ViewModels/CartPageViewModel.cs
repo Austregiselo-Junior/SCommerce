@@ -1,6 +1,4 @@
 ﻿using SCommerce.Main.Model.Entities;
-using SCommerce.Main.Model.Services;
-using SCommerce.Main.Model.Services.CartService;
 using SCommerce.Main.MVVM;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +8,7 @@ namespace SCommerce.Main.ViewModels
     public class CartPageViewModel : MVVMBase
     {
         private string selectedsteps;
+
         public string SelectedSteps
         {
             get { return selectedsteps; }
@@ -24,6 +23,7 @@ namespace SCommerce.Main.ViewModels
         }
 
         private List<string> steps;
+
         public List<string> Steps
         {
             get { return steps; }
@@ -38,6 +38,7 @@ namespace SCommerce.Main.ViewModels
         }
 
         private List<Cart> itens;
+
         public List<Cart> Itens
         {
             get { return itens; }
@@ -57,7 +58,8 @@ namespace SCommerce.Main.ViewModels
             SelectedSteps = Steps.First();
         }
 
-        int count = 0;
+        private int count = 0;
+
         public void Confirme()
         {
             count++;

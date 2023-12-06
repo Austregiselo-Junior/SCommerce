@@ -1,7 +1,6 @@
 ﻿using SCommerce.Main.Model.Entities;
 using SCommerce.Main.ViewModels;
 using System.Collections.Generic;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -10,6 +9,7 @@ namespace SCommerce.Main.View
     public sealed partial class CartPage : Page
     {
         public CartPageViewModel ViewModel => (CartPageViewModel)this.DataContext;
+
         public CartPage()
         {
             this.InitializeComponent();

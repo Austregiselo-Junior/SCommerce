@@ -1,18 +1,5 @@
-﻿using SCommerce.Main.Controls.MainMenu;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 namespace SCommerce.Main
 {
@@ -21,7 +8,6 @@ namespace SCommerce.Main
     /// </summary>
     public sealed partial class AppShell : Page
     {
-
         public AppShell()
         {
             this.InitializeComponent();
@@ -61,6 +47,5 @@ namespace SCommerce.Main
         {
             mainMenu.SearchBar = visible ? Visibility.Visible : Visibility.Collapsed; // continuar fazendo a barra de pesquisa.
         }
-
     }
 }

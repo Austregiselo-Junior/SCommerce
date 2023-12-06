@@ -8,6 +8,7 @@ namespace SCommerce.Main.Controls
         public static string Quantity { get; set; }
         private const string Hidden = "BadgeHasHidden";
         private const string Visible = "BadgeHasVisible";
+
         public string Badge
         {
             get { return (string)GetValue(BadgeProperty); }

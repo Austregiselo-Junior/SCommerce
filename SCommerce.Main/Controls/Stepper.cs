@@ -1,5 +1,4 @@
-﻿using SCommerce.Main.Model;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace SCommerce.Main.Controls
@@ -73,18 +72,18 @@ namespace SCommerce.Main.Controls
                 return;
             }
             Value--;
-           // Subtracted?.Invoke(this, new RoutedEventArgs());
+            // Subtracted?.Invoke(this, new RoutedEventArgs());
         }
 
         private void OnAdd(object sender, RoutedEventArgs e)
         {
             Value++;
-           // Add?.Invoke(this, new RoutedEventArgs());
+            // Add?.Invoke(this, new RoutedEventArgs());
         }
 
         private void UpdateVisualState()
         {
-            var state = (Value <= 1 ? StateNormal: StateManyItems);
+            var state = (Value <= 1 ? StateNormal : StateManyItems);
             VisualStateManager.GoToState(this, state, false);
         }
     }

@@ -1,15 +1,6 @@
 ﻿using SCommerce.Main.Controls.MainMenu;
-using SCommerce.Main.Model.Services;
-using SCommerce.Main.Model.Services.CartService;
 using SCommerce.Main.MVVM;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.ApplicationModel.Calls;
-using Windows.ApplicationModel.VoiceCommands;
-using Windows.UI.Xaml.Controls;
 
 namespace SCommerce.Main.ViewModels
 {
@@ -32,7 +23,8 @@ namespace SCommerce.Main.ViewModels
         }
 
         private int _badgeQuantity;
-        public int BadgeQuantity 
+
+        public int BadgeQuantity
         {
             get { return _badgeQuantity; }
             set
@@ -52,7 +44,6 @@ namespace SCommerce.Main.ViewModels
                 OnCreated(this, new MainMenuEventArgs { BadgeQuantity = quantity });
             }
         }
-
 
         public void OnGetBadgeQuantity(object sender, MainMenuEventArgs e)
         {

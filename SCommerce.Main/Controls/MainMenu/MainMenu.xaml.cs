@@ -2,23 +2,8 @@
 using SCommerce.Main.Model.Services.HomeService;
 using SCommerce.Main.View;
 using SCommerce.Main.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.AI.MachineLearning;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
-using Windows.UI.Xaml.Navigation;
-
 
 namespace SCommerce.Main.Controls.MainMenu
 {
@@ -29,6 +14,7 @@ namespace SCommerce.Main.Controls.MainMenu
     {
         public MainMenuViewModel ViewModel => (MainMenuViewModel)this.DataContext;
         private AppShell _appShell = null;
+
         public MainMenu()
         {
             this.InitializeComponent();
@@ -44,8 +30,6 @@ namespace SCommerce.Main.Controls.MainMenu
         // Using a DependencyProperty as the backing store for TryGoBackPage.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TryGoBackPageProperty =
             DependencyProperty.Register("TryGoBackPage", typeof(Visibility), typeof(MainMenu), new PropertyMetadata(Visibility.Collapsed));
-
-
 
         public Visibility GoHomePage
         {

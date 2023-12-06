@@ -87,7 +87,6 @@
             Text="{x:Bind ViewModel.TitleofPage}"
             TextWrapping="WrapWholeWords" />
 
-
         <ScrollViewer
             Grid.Row="1"
             Padding="30"
@@ -118,6 +117,5 @@
             IsEnabled="True"
             Opacity="0.8"
             Style="{ThemeResource CommonButtonStyle}" />
-
     </Grid>
 </Page>

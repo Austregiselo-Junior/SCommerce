@@ -2,9 +2,6 @@
 using SCommerce.Main.Model.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SCommerce.Main.Model.Services
 {/// <summary>
@@ -14,9 +11,11 @@ namespace SCommerce.Main.Model.Services
     {
         private static ServiceConnection _instance;
         private static object locallock = new object();
+
         public event EventHandler OnCreated;
 
-        private ServiceConnection() { }
+        private ServiceConnection()
+        { }
 
         public static ServiceConnection GetInstance()
         {
@@ -96,7 +95,6 @@ namespace SCommerce.Main.Model.Services
             foreach (var item in MockDBBaseService.GetInstanceDB().GetProductsfromDB())
             {
                 imagesFromProduct.Add(item.ImagesFromProduct.ToString()); // Ainda há problema com esse método, por hora vamos usar o de cima
-                   
             }
             return imagesFromProduct;
         }
@@ -108,7 +106,7 @@ namespace SCommerce.Main.Model.Services
             {
                 products.Add(item);
             }
-           return products;
+            return products;
         }
 
         public void OnStartDB()
@@ -117,4 +115,3 @@ namespace SCommerce.Main.Model.Services
         }
     }
 }
-

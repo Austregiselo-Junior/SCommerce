@@ -1,10 +1,8 @@
-﻿using SCommerce.Main.Model.Data;
-using SCommerce.Main.ViewModels;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace SCommerce.Main.Model.Services.ProductServer
 {
-    public class ProductServer 
+    public class ProductServer
     {
         private static ProductServer _instance;
 
@@ -13,7 +11,6 @@ namespace SCommerce.Main.Model.Services.ProductServer
         }
 
         public static ProductServer GetInstance() => _instance ?? (_instance = new ProductServer());
-    
 
         public string GetTitleProductforProductDetailsPage()
         {
@@ -22,7 +19,7 @@ namespace SCommerce.Main.Model.Services.ProductServer
 
         public string GetDescriptionProductforProductDetailsPage()
         {
-           return ServiceConnection.GetInstance().GetDescriptionProduct();
+            return ServiceConnection.GetInstance().GetDescriptionProduct();
         }
 
         public float GetPriceProductforProductDetailsPage()

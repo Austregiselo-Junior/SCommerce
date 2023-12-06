@@ -1,7 +1,5 @@
 ﻿using SCommerce.Main.Model.Entities;
 using SCommerce.Main.ViewModels;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -34,7 +32,6 @@ namespace SCommerce.Main.View
             {
                 ViewModel.ItemSelected = (Product)e.Parameter;
             }
-           
         }
     }
 }

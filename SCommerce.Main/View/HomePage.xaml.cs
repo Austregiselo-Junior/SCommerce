@@ -1,20 +1,9 @@
 ﻿using SCommerce.Main.Model.Entities;
-using SCommerce.Main.Model.Services.CartService;
 using SCommerce.Main.Model.Services.HomeService;
 using SCommerce.Main.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace SCommerce.Main.View
@@ -25,6 +14,7 @@ namespace SCommerce.Main.View
     public sealed partial class HomePage : Page
     {
         public HomePageViewModel ViewModel => (HomePageViewModel)this.DataContext;
+
         public HomePage()
         {
             this.InitializeComponent();
@@ -60,7 +50,6 @@ namespace SCommerce.Main.View
 
         private void ScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
         {
-
         }
     }
 }
