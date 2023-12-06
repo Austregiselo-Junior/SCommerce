@@ -1,0 +1,68 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:SCommerce.Main.Controls">
+
+    <Style x:Key="StylefromRating" TargetType="controls:Rating">
+        <Setter Property="Background" Value="Gold" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:Rating">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Foreground="{TemplateBinding Background}" Symbol="SolidStar" />
+                        <SymbolIcon
+                            x:Name="Star2"
+                            Foreground="{TemplateBinding Background}"
+                            Symbol="OutlineStar" />
+                        <SymbolIcon
+                            x:Name="Star3"
+                            Foreground="{TemplateBinding Background}"
+                            Symbol="OutlineStar" />
+                        <SymbolIcon
+                            x:Name="Star4"
+                            Foreground="{TemplateBinding Background}"
+                            Symbol="OutlineStar" />
+                        <SymbolIcon
+                            x:Name="Star5"
+                            Foreground="{TemplateBinding Background}"
+                            Symbol="OutlineStar" />
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="RatingStates">
+                                <VisualState x:Name="Rating1" />
+                                <VisualState x:Name="Rating2">
+                                    <VisualState.Setters>
+                                        <Setter Target="Star2.Symbol" Value="SolidStar" />
+                                    </VisualState.Setters>
+                                </VisualState>
+
+                                <VisualState x:Name="Rating3">
+                                    <VisualState.Setters>
+                                        <Setter Target="Star2.Symbol" Value="SolidStar" />
+                                        <Setter Target="Star3.Symbol" Value="SolidStar" />
+                                    </VisualState.Setters>
+                                </VisualState>
+
+                                <VisualState x:Name="Rating4">
+                                    <VisualState.Setters>
+                                        <Setter Target="Star2.Symbol" Value="SolidStar" />
+                                        <Setter Target="Star3.Symbol" Value="SolidStar" />
+                                        <Setter Target="Star4.Symbol" Value="SolidStar" />
+                                    </VisualState.Setters>
+                                </VisualState>
+
+                                <VisualState x:Name="Rating5">
+                                    <VisualState.Setters>
+                                        <Setter Target="Star2.Symbol" Value="SolidStar" />
+                                        <Setter Target="Star3.Symbol" Value="SolidStar" />
+                                        <Setter Target="Star4.Symbol" Value="SolidStar" />
+                                        <Setter Target="Star5.Symbol" Value="SolidStar" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

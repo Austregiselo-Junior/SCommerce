@@ -1,0 +1,106 @@
+﻿
+
+Binding -> Interpretado, sempre olha pro DataContext di objeto que que se está aplicando 
+Exemplo no xaml.cs:
+É instânciado assim: This.DataContext = new ProductDetailsPageViewModel().
+
+Exemplo no xaml:
+Title = {Binding Title}
+
+X:Bind -> Compilado, precisa conhecer o tipo em que está trabalhando ()
+Exemplo no xaml.cs:
+É instânciado assim: public ProductDetailsPageViewModel ViewModel => new ProductDetailsPageViewModel().
+
+
+Exemplo no xaml:
+Title = {X:Bind ViewModel.Title}
+
+Observação sobre o Model: 
+OneWay -> Padrão do Binding, sempre que a ViewModel notificar a tela  a propriedade na tela vai atualizar
+OneTime -> Padrão do X:Bind, sempre que a ViewModel notificar a tela  a propriedade na tela vai atualizar, só acontece uma vez e depois perde a conexão, bom, pra usar em coisas fixas.
+TwoWay -> Sempre que a ViewModel notificar a tela  a propriedade na tela vai atualizar, acontece de forma dinâmica, melhor para input de texto porque com ele a propriedade pode ser alterada tanto da ViewModel
+pra tela quanto da tela pra ViewModel, como uma via de mão dupla.
+
+MVVM:
+A View Model funciona como ponte entre a model e a UI.
+UI = xaml + xaml.cs
+
+Binding com evento:
+Pdemos fazer um click direto no xaml.cs ou por x:bind
+Convencionalmente usamos o x:bind, exemplo: Click="{x:Bind ViewModel.AddToCart}".
+
+UserControl: É uma página que pode ser posta dentro de outra, um botão não é um UserControl mas o UserControl pode ser botões, exemplo é um AppShell (CommandBar)
+
+TampleiteControl: Controles que não fazem parte da regra de negócio da aplicação, pode ser um botão, caixa de texto, listView
+
+ResourceDictionary:
+Para um dicionário aparecer para toda aaplicação ele deve ser instanciados no App.xaml, como mostra essa aplicação.
+
+OBS: ThemeResource é mais indicado porque na mudança de tema ou de coloração de um componente o objeto vai ser atualizado automaticamente e o StaticResource é usado quando a cor
+objeto em se é estático.
+
+Style:
+Deve conter as coisas comuns de um botão, texto... Marge e quebra de linhas geralmente depende da implementalçao e não são comuns, assim eles não devem está no style.
+
+TampleteControl:
+Tema definição visual (tamplete) + controle (função/evento)
+Um controle pode ter vários tampletes, todo controle tem que ter um tamplete padrão
+
+OBS: Na criação de um novo template é feita dentro de um estilo e suas propriedade se usa o TemplateBinding, exemplo
+<Setter.value>
+	<ControlTemplate target = "Button">
+		<Width = "{TemplateBinding Width}" CornerRadius = "{TemplateBinding CornerRadius}"> OBS: Isso é uma boa prática porque deixa o tamplete mais geral, ai caso seja reutilizado só é reajustar na implementação do novo botão
+	<ControlTemplate>
+<Setter.value>
+
+Tratar os estados visuais de um controle: Usamos o visual state. Esse exemplo é para botão
+<Setter.value>
+	<ControlTemplate target = "Button">
+		<Border x:name = "Root" 
+			CornerRadius = "{TemplateBinding CornerRadius}"
+			Background = {TemplateBinding Background}>
+		  <VisualStateManager.VisualStateGroups>
+			<VisualStateGroup x: Name = "CommonStates"/>
+				<VisualState x: Name = "Normal"/>
+				<VisualState x: Name = "PointerOver"/>
+					<VisualState.Setters>
+						<Setter target = "Root.Background" value = "Pink"/>
+					<VisualState.Setters>
+				</VisualState>
+				<VisualState x: Name = "Pressed"/>
+					<VisualState.Setters>
+						<Setter target = "Root.Background" value = "Cyan"/>
+					<VisualState.Setters>
+				</VisualState>
+				<VisualState x: Name = "Disable"/>
+					<VisualState.Setters>
+						<Setter target = "Root.Background" value = "Black"/> Sempre chave (propriedade) e o valor da propriedade.
+					<VisualState.Setters>
+				</VisualState>
+		  </VisualStateGroup>
+		 </VisualStateManager.VisualStateGroups>
+	<ControlTemplate>
+<Setter.value>
+
+
+OBS: Usamos Storyboard para animação de visual state, é sempre por o Storyboard no VisualState que se quer:
+				<VisualState x: Name = "PointerOver"/>
+					<Storyboard>
+						PointerUpThemeAnimation targetName = "Root"/>
+					</Storyboard>
+
+					<VisualState.Setters>
+						<Setter target = "Root.Background" value = "Pink"/>
+					<VisualState.Setters>
+				</VisualState>
+
+Importante: Podemos criar todo o estilo automáticamente herdando de um controle padrão, vá em Document Outline ->  
+escolha um objeto que está na tela -> click no objeto -> Edite Template -> Edit a Copy -> Defina um nome e o local -> OK
+Será criado uma estritura de style com tamplete e seus estados do objeto. Uma boa prática é setar o valor na raiz superior do objeto
+assom eles são reutilizados pelo TampletesBinding.
+OBS o ObjectAnimationUsingKeyFrame é semelhante ao Setters, sendo uma forma mais verbosa de definir as coisas.
+
+
+
+
+

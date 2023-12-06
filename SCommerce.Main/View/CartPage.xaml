@@ -1,0 +1,115 @@
+﻿<Page
+    x:Class="SCommerce.Main.View.CartPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Control="using:SCommerce.Main.Controls"
+    xmlns:converters="using:SCommerce.Main.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:SCommerce.Main.Model.Entities"
+    xmlns:viewmodels="using:SCommerce.Main.ViewModels"
+    mc:Ignorable="d">
+
+    <Page.Background>
+        <ImageBrush
+            ImageSource="ms-appx:///Assets/Images/BackgroundHomePage.jpeg"
+            Opacity="0.3"
+            Stretch="UniformToFill" />
+    </Page.Background>
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/StylesResourceDictionary/CommonTextStyle.xaml" />
+                <ResourceDictionary Source="/StylesResourceDictionary/CommonButtonStyle.xaml" />
+                <ResourceDictionary Source="/StylesResourceDictionary/RatingStyle.xaml" />
+                <ResourceDictionary Source="/StylesResourceDictionary/CartImageStyle.xaml" />
+                <ResourceDictionary Source="/StylesResourceDictionary/Stepper.xaml" />
+                <ResourceDictionary Source="/StylesResourceDictionary/Steps.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <converters:DoubletoCurrencyFormatConverter x:Key="CurrencyConverter" />
+
+            <ItemsPanelTemplate x:Key="CartItemTemplate">
+                <ItemsStackPanel Orientation="Vertical" />
+            </ItemsPanelTemplate>
+
+            <DataTemplate x:Key="ModelList" x:DataType="models:Cart">
+                <Grid Padding="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" CornerRadius="30">
+                        <Image
+                            Source="{Binding CartImageItem, Mode=OneWay}"
+                            Stretch="UniformToFill"
+                            Style="{ThemeResource CommonImageCartStyle}" />
+                    </Border>
+
+                    <StackPanel
+                        Grid.Column="1"
+                        Padding="20"
+                        VerticalAlignment="Center">
+                        <TextBlock Padding="10" Style="{ThemeResource CommonText}">
+                            <Run Text="Nome: " />
+                            <Run Text="{Binding Name, Mode=OneWay}" />
+                        </TextBlock>
+
+                        <TextBlock Padding="10" Style="{ThemeResource CommonText}">
+                            <Run Text="R$" />
+                            <Run Text="{Binding Price, Mode=OneWay, Converter={StaticResource CurrencyConverter}}" />
+                        </TextBlock>
+                    </StackPanel>
+
+                    <Control:Stepper
+                        Grid.Column="2"
+                        Padding="20"
+                        VerticalAlignment="Center"
+                        Style="{ThemeResource StylefromStepper}"
+                        Value="{Binding ProductCartQuantity}" />
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ListView
+            Margin="20"
+            ItemContainerStyle="{StaticResource ListViewItemContainerStyle}"
+            ItemsPanel="{StaticResource StepperItemsPanel}"
+            ItemsSource="{x:Bind ViewModel.Steps}"
+            SelectedItem="{x:Bind ViewModel.SelectedSteps, Mode=TwoWay}"
+            Style="{StaticResource StepListView}" />
+
+        <ScrollViewer Grid.Row="1" Padding="20">
+            <StackPanel Margin="0,50,0,0">
+                <ListView
+                    CanDrag="True"
+                    CanDragItems="True"
+                    CornerRadius="30"
+                    ItemTemplate="{StaticResource ModelList}"
+                    ItemsPanel="{StaticResource CartItemTemplate}"
+                    ItemsSource="{x:Bind ViewModel.Itens}"
+                    ReorderMode="Enabled" />
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <Button
+            Grid.Row="2"
+            Margin="20"
+            Click="{x:Bind ViewModel.Confirme}"
+            Content="Confirme"
+            FontSize="20"
+            Style="{ThemeResource CommonButtonStyle}" />
+    </Grid>
+</Page>

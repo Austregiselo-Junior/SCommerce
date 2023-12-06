@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="CommonTitleProductForeground" Color="#FAFAFA" />
+    <SolidColorBrush x:Key="BadgeBackground" Color="#EF5E16" />
+    <SolidColorBrush
+        x:Key="AudioSampleButtonBackground"
+        Opacity="0.17"
+        Color="#FFFFFF" />
+    <SolidColorBrush
+        x:Key="AudioSampleButtonBackground_Hover"
+        Opacity="0.9"
+        Color="Black" />
+    <SolidColorBrush
+        x:Key="AudioSampleButtonBackground_Pressed"
+        Opacity="0.25"
+        Color="#FFFFFF" />
+    <SolidColorBrush x:Key="AudioSampleTextBackground" Color="#FAFAFA" />
+    <SolidColorBrush x:Key="AudioSampleButtonBorderBrush_Hover" Color="Transparent" />
+    <SolidColorBrush x:Key="AudioSampleTextForeground_Hover" Color="#FAFAFA" />
+    <SolidColorBrush x:Key="CommonBorderColor" Color="Transparent" />
+    <SolidColorBrush x:Key="AudioSampleButtonBorderBrush_Pressed" Color="Transparent" />
+    <SolidColorBrush x:Key="AudioSampleTextForeground_Pressed" Color="#FAFAFA" />
+</ResourceDictionary>

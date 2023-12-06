@@ -1,0 +1,63 @@
+﻿<Page
+    x:Class="SCommerce.Main.Controls.MainMenu.MainMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:SCommerce.Main.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:SCommerce.Main.Controls.MainMenu"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="CustomMenu"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/StylesResourceDictionary/BadgeStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <CommandBar
+            VerticalContentAlignment="Center"
+            DefaultLabelPosition="Right"
+            IsOpen="False"
+            IsSticky="True"
+            OverflowButtonVisibility="Collapsed"
+            Visibility="{Binding ElementName=CustomMenu, Path=AppBarButton, Mode=OneWay}">
+
+            <AppBarButton
+                Click="GoBackPage_Click"
+                Icon="Back"
+                Label="Back"
+                ToolTipService.ToolTip="Back"
+                Visibility="{Binding ElementName=CustomMenu, Path=TryGoBackPage, Mode=OneWay}" />
+
+
+            <AppBarButton
+                HorizontalAlignment="Left"
+                Click="GoHomePage_Click"
+                Icon="Home"
+                Label="Home"
+                Visibility="{Binding ElementName=CustomMenu, Path=GoHomePage, Mode=OneWay}" />
+
+            <AppBarButton
+                HorizontalAlignment="Left"
+                Click="GoSettingsPage_Click"
+                Icon="Setting"
+                Label="Setting"
+                Visibility="{Binding ElementName=CustomMenu, Path=SettingPage, Mode=OneWay}" />
+
+
+            <controls:BadgeAppBarButton
+                Padding="20"
+                Badge="{x:Bind ViewModel.BadgeQuantity, Mode=OneWay}"
+                Click="AppBarButton_Click"
+                Style="{ThemeResource Badge}"
+                Visibility="{Binding ElementName=CustomMenu, Path=CartQuantityItens, Mode=OneWay}" />
+        </CommandBar>
+    </Grid>
+</Page>
+
+
