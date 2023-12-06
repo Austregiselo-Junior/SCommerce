@@ -4,7 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="using:SCommerce.Main.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:SCommerce.Main.Controls.MainMenu"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="CustomMenu"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -34,7 +33,6 @@
                 ToolTipService.ToolTip="Back"
                 Visibility="{Binding ElementName=CustomMenu, Path=TryGoBackPage, Mode=OneWay}" />
 
-
             <AppBarButton
                 HorizontalAlignment="Left"
                 Click="GoHomePage_Click"
@@ -49,9 +47,7 @@
                 Label="Setting"
                 Visibility="{Binding ElementName=CustomMenu, Path=SettingPage, Mode=OneWay}" />
 
-
             <controls:BadgeAppBarButton
-                Padding="20"
                 Badge="{x:Bind ViewModel.BadgeQuantity, Mode=OneWay}"
                 Click="AppBarButton_Click"
                 Style="{ThemeResource Badge}"
@@ -59,5 +55,3 @@
         </CommandBar>
     </Grid>
 </Page>
-
-

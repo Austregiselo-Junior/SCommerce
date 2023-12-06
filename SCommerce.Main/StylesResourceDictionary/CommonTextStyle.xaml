@@ -15,7 +15,7 @@
         <Setter Property="Foreground" Value="{ThemeResource CommonTitleProductForeground}" />
         <Setter Property="FontWeight" Value="ExtraBlack" />
         <Setter Property="FontSize" Value="40" />
-        <Setter Property="TextWrapping" Value="WrapWholeWords"/>
+        <Setter Property="TextWrapping" Value="WrapWholeWords" />
     </Style>
 
 </ResourceDictionary>

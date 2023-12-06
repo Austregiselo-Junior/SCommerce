@@ -1,25 +1,17 @@
-﻿
-using SCommerce.Main.Model.Entities;
+﻿using SCommerce.Main.Model.Entities;
 using SCommerce.Main.Model.Services;
 using SCommerce.Main.Model.Services.HomeService;
 using SCommerce.Main.MVVM;
-using SCommerce.Main.View;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.AI.MachineLearning;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
 using System.Runtime.Caching;
-using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace SCommerce.Main.ViewModels
 {
     public class HomePageViewModel : MVVMBase
     {
-        readonly static string _cacheKey = "ItemSelected";
+        private static readonly string _cacheKey = "ItemSelected";
         public string TitleofPage { get; set; }
 
         public static Product ProductinCache { get; private set; }
@@ -27,6 +19,7 @@ namespace SCommerce.Main.ViewModels
         public static Product SelectedItem { get; private set; }
 
         private List<Product> products;
+
         public List<Product> Products
         {
             get { return products; }
@@ -73,7 +66,7 @@ namespace SCommerce.Main.ViewModels
         /// </summary>
         /// <returns></returns>
         private void AddItemInCache()
-        { 
+        {
             var cache = new MemoryCache(_cacheKey);// Criar uma instância do MemoryCache
             try
             {
@@ -81,7 +74,7 @@ namespace SCommerce.Main.ViewModels
             }
             catch (Exception ex)
             {
-               _ = ex.Message;
+                _ = ex.Message;
             }
 
             ProductinCache = (Product)cache.Get(_cacheKey);// Recuperar um item do cache

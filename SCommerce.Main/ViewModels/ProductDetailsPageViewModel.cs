@@ -1,6 +1,4 @@
-﻿using SCommerce.Main.Controls.MainMenu;
-using SCommerce.Main.Model.Entities;
-using SCommerce.Main.Model.Services;
+﻿using SCommerce.Main.Model.Entities;
 using SCommerce.Main.Model.Services.CartService;
 using SCommerce.Main.Model.Services.ProductServer;
 using SCommerce.Main.MVVM;
@@ -10,10 +8,11 @@ using System.Collections.Generic;
 namespace SCommerce.Main.ViewModels
 {
     public class ProductDetailsPageViewModel : MVVMBase
-    { 
+    {
         public event EventHandler OnGetBadgeQuantity;
 
         #region Propertys
+
         public int Badge { get; private set; }
         public Product ItemSelected { get; set; }
         public int Id { get; private set; }
@@ -24,6 +23,7 @@ namespace SCommerce.Main.ViewModels
         public List<string> Images { get; set; }
 
         private string selectedImage;
+
         public string SelectedImage
         {
             get { return selectedImage; }
@@ -37,7 +37,7 @@ namespace SCommerce.Main.ViewModels
             }
         }
 
-        #endregion
+        #endregion Propertys
 
         public ProductDetailsPageViewModel()
         {
@@ -73,9 +73,8 @@ namespace SCommerce.Main.ViewModels
 
             // Tá assim, mas não é o correto.
             // O correto é passar via Navigate, só que para isso devemos corrigir o XAML referente a essa página.
-            // Devemos ajustar o xaml pra pegar os dados de um ítem selecionado que vai chegar no OnNavigateTo, deve ser semelhante 
+            // Devemos ajustar o xaml pra pegar os dados de um ítem selecionado que vai chegar no OnNavigateTo, deve ser semelhante
             // ao xaml do CartPage.
         }
-
     }
 }

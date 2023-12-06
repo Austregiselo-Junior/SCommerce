@@ -1,21 +1,18 @@
 ﻿using SCommerce.Main.Model.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 
 namespace SCommerce.Main.Model.Data
 {
-    class MockDBBaseService : IMockDBBaseService
+    internal class MockDBBaseService : IMockDBBaseService
     {
         private static MockDBBaseService _instance;
         private List<Product> _data;
 
         private MockDBBaseService() => _data = new List<Product>();
-        
+
         public static MockDBBaseService GetInstanceDB() => _instance is null ? _instance = new MockDBBaseService() : _instance;
 
         public List<Product> GetProductsfromDB() => PostProductsfromDB();
-
 
         public void DeleteProductsfromDB()
         {
@@ -24,7 +21,6 @@ namespace SCommerce.Main.Model.Data
 
         public List<Product> PostProductsfromDB()
         {
-        
             var products = new List<Product>()
             { new Product{ID = 1, Name = "X Combo",Description = "Um combo completo", Price = 15.24F , Rating = 5, Image = "ms-appx:///Assets/Images/X_combo.png",
                 ImagesFromProduct = { "ms-appx:///Assets/Images/Xcombo1.Jpeg", "ms-appx:///Assets/Images/Xcombo2.Jpeg", "ms-appx:///Assets/Images/Xcombo3.Jpeg"}},

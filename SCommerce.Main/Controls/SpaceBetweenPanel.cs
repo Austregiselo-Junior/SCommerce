@@ -14,14 +14,13 @@ namespace SCommerce.Main.Controls
 
             foreach (var item in Children)
             {
-               item.Measure(remainingSize);
+                item.Measure(remainingSize);
 
                 if (item.DesiredSize.Height > size.Height)
                     size.Height = item.DesiredSize.Height;
 
                 size.Width += item.DesiredSize.Width;
                 remainingSize.Width -= item.DesiredSize.Width;
-
             }
             itensWidth = size.Width;
             return size;
@@ -31,7 +30,6 @@ namespace SCommerce.Main.Controls
         {
             var size = new Size();
             double spaceBetween = (finalSize.Width - itensWidth) / (Children.Count - 1);
-      
 
             foreach (var item in Children)
             {

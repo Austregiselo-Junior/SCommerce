@@ -16,12 +16,13 @@ namespace SCommerce.Main
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : Application
+    internal sealed partial class App : Application
     {
         public static Product SelectProduct { get; set; }
 
         public NavigationService NavigationService { get; private set; }
         private AppShell _appShell = null;
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -40,7 +41,7 @@ namespace SCommerce.Main
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-            Frame rootFrame = null; 
+            Frame rootFrame = null;
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
@@ -87,7 +88,7 @@ namespace SCommerce.Main
         /// </summary>
         /// <param name="sender">The Frame which failed navigation</param>
         /// <param name="e">Details about the navigation failure</param>
-        void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
+        private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
